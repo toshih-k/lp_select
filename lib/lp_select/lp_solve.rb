@@ -132,6 +132,9 @@ module LPSolve
   
   # void set_minim(lprec *lp);
   attach_function :set_minim, [:pointer], :void
+
+  # unsigned char set_bounds(lprec *lp, int column, REAL lower, REAL upper);
+  attach_function :set_bounds, [:pointer, :int, :REAL, :REAL], :char
   
   def self.version
     maj_ptr = FFI::MemoryPointer.new(:pointer, 1)

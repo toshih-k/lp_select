@@ -248,4 +248,20 @@ class LpSolveTest < Test::Unit::TestCase
     assert_not_nil retvals[0]
     assert_equal 1.0, retvals[1]
   end
+
+  def test_set_bounds
+    @lp = LPSolve::make_lp(0, 2)
+    LPSolve::set_verbose(@lp, LPSolve::SEVERE )
+    result = LPSolve::set_bounds(@lp, 1, 0, 100)
+    assert_equal result, 1
+
+    result = LPSolve::set_bounds(@lp, 2, -10, 11)
+    assert_equal result, 1
+
+    result = LPSolve::set_bounds(@lp, 3, -10, 11)
+    assert_equal result, 0
+
+    result = LPSolve::set_bounds(@lp, 1, -10, -11)
+    assert_equal result, 0
+  end
 end
