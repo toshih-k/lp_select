@@ -133,6 +133,26 @@ class LpSolveTest < Test::Unit::TestCase
       end
     end
   end
+
+  # unsigned char add_constraintex(lprec *lp, int count, REAL *row, int *colno, int constr_type, REAL rh);
+  def test_add_constraintex
+    @lp = LPSolve::make_lp(0, 2)
+
+    # The API expects a 1 indexed array
+
+    rows = [1, 3]
+    row_vars = FFI::MemoryPointer.new(:double, rows.size) do |p|
+      p.write_array_of_double(rows)
+    end
+
+    constraint_vars = [0, 1]
+    FFI::MemoryPointer.new(:double, constraint_vars.size) do |p|
+      p.write_array_of_double(constraint_vars)
+      assert_nothing_raised do
+        LPSolve::add_constraintex(@lp, 2, p, row_vars, LPSelect::EQ, 1.0.to_f)
+      end
+    end
+  end
   
   # unsigned char set_row_name(lprec *lp, int row, char *new_name);
   def test_set_row_name

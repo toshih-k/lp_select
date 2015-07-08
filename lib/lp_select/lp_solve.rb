@@ -111,6 +111,9 @@ module LPSolve
   
   # unsigned char add_constraint(lprec *lp, REAL *row, int constr_type, REAL rh);
   attach_function :add_constraint, [:pointer, :pointer, :int, :REAL], :char
+
+  # unsigned char add_constraintex(lprec *lp, int count, REAL *row, int *colno, int constr_type, REAL rh);
+  attach_function :add_constraintex, [:pointer, :int, :pointer, :pointer, :int, :REAL], :char
   
   # unsigned char set_row_name(lprec *lp, int row, char *new_name);
   attach_function :set_row_name, [:pointer, :int, :string], :char
