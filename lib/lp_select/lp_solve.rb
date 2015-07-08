@@ -135,6 +135,10 @@ module LPSolve
 
   # unsigned char set_bounds(lprec *lp, int column, REAL lower, REAL upper);
   attach_function :set_bounds, [:pointer, :int, :REAL, :REAL], :char
+
+  # unsigned char set_add_rowmode(lprec *lp, unsigned char turnon);
+  attach_function :set_add_rowmode, [:pointer, :char], :char
+
   
   def self.version
     maj_ptr = FFI::MemoryPointer.new(:pointer, 1)

@@ -264,4 +264,13 @@ class LpSolveTest < Test::Unit::TestCase
     result = LPSolve::set_bounds(@lp, 1, -10, -11)
     assert_equal result, 0
   end
+
+  def test_set_add_rowmode
+    @lp = LPSolve::make_lp(0, 1)
+    LPSolve::set_verbose(@lp, LPSolve::SEVERE )
+    assert_equal LPSolve::set_add_rowmode(@lp, 1), 1
+    assert_equal LPSolve::set_add_rowmode(@lp, 1), 0
+    assert_equal LPSolve::set_add_rowmode(@lp, 0), 1
+    assert_equal LPSolve::set_add_rowmode(@lp, 0), 0
+  end
 end
