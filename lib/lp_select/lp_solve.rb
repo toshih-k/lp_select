@@ -93,6 +93,9 @@ module LPSolve
   
   # void print_lp(lprec *lp);
   attach_function :print_lp, [:pointer], :void
+
+  # void void print_constraints(lprec *lp, int columns);
+  attach_function :print_constraints, [:pointer, :int], :void
   
   # lprec *make_lp(int rows, int columns);
   attach_function :make_lp, [:int, :int], :pointer
