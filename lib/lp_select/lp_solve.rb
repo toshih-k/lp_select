@@ -145,7 +145,10 @@ module LPSolve
   # unsigned char set_add_rowmode(lprec *lp, unsigned char turnon);
   attach_function :set_add_rowmode, [:pointer, :char], :char
 
-  
+  # void set_timeout(lprec *lp, long sectimeout);
+  attach_function :set_timeout, [:pointer, :int], :void
+
+
   def self.version
     maj_ptr = FFI::MemoryPointer.new(:pointer, 1)
     min_ptr = FFI::MemoryPointer.new(:pointer, 1)
