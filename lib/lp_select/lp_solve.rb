@@ -111,6 +111,9 @@ module LPSolve
   
   # unsigned char set_obj_fn(lprec *lp, REAL *row);
   attach_function :set_obj_fn, [:pointer, :pointer], :char
+
+  # unsigned char set_obj(lprec *lp, int column, REAL value);
+  attach_function set_obj, [:pointer, :int, :REAL], :char
   
   # unsigned char add_constraint(lprec *lp, REAL *row, int constr_type, REAL rh);
   attach_function :add_constraint, [:pointer, :pointer, :int, :REAL], :char
