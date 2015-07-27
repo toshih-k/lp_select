@@ -2,12 +2,9 @@
 # -----------------------------------------------
 #  
 #  This class relies on the lpsolve library hooks, and 
-#  serves as a specialized interface for solving the
-#  NSF selection problem.  It uses binary variables 
-#  names with the applicant IDs to determine who is 
-#  selected.  There is a paper written on it as well
-#  as assorted documentation in the trunk folder of this
-#  repository.
+#  serves as an interface for solving specialized
+#  selection problems.  It uses binary variables 
+#  with assigned names to determine what is selected
 # -----------------------------------------------
 
 include LPSolve

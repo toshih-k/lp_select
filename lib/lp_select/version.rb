@@ -1,3 +1,4 @@
 module LpSelect
-  VERSION = "0.0.1"
+  # See http://semver.org/
+  VERSION = "1.0.0"
 end

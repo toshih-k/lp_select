@@ -3,6 +3,14 @@
 #  This module uses Ruby's DL library to dynamically load
 #  the liblpsolve library, which is a linear equation solver.
 #
+#  The sourceforge summary says:
+#  Mixed Integer Linear Programming (MILP) solver lp_solve solves pure linear, 
+#  (mixed) integer/binary, semi-cont and special ordered sets (SOS) models.  
+#  lp_solve is written in ANSI C and can be compiled on many different platforms 
+#  like Linux and WINDOWS
+#
+#  Read more at http://sourceforge.net/projects/lpsolve/
+#
 #  This module mostly serves to load the file and attach to the 
 #  API functions
 #
