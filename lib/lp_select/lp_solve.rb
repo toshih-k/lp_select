@@ -93,6 +93,9 @@ module LPSolve
   
   # void print_lp(lprec *lp);
   attach_function :print_lp, [:pointer], :void
+
+  # void void print_constraints(lprec *lp, int columns);
+  attach_function :print_constraints, [:pointer, :int], :void
   
   # lprec *make_lp(int rows, int columns);
   attach_function :make_lp, [:int, :int], :pointer
@@ -108,9 +111,15 @@ module LPSolve
   
   # unsigned char set_obj_fn(lprec *lp, REAL *row);
   attach_function :set_obj_fn, [:pointer, :pointer], :char
+
+  # unsigned char set_obj(lprec *lp, int column, REAL value);
+  attach_function :set_obj, [:pointer, :int, :REAL], :char
   
   # unsigned char add_constraint(lprec *lp, REAL *row, int constr_type, REAL rh);
   attach_function :add_constraint, [:pointer, :pointer, :int, :REAL], :char
+
+  # unsigned char add_constraintex(lprec *lp, int count, REAL *row, int *colno, int constr_type, REAL rh);
+  attach_function :add_constraintex, [:pointer, :int, :pointer, :pointer, :int, :REAL], :char
   
   # unsigned char set_row_name(lprec *lp, int row, char *new_name);
   attach_function :set_row_name, [:pointer, :int, :string], :char
@@ -132,7 +141,17 @@ module LPSolve
   
   # void set_minim(lprec *lp);
   attach_function :set_minim, [:pointer], :void
-  
+
+  # unsigned char set_bounds(lprec *lp, int column, REAL lower, REAL upper);
+  attach_function :set_bounds, [:pointer, :int, :REAL, :REAL], :char
+
+  # unsigned char set_add_rowmode(lprec *lp, unsigned char turnon);
+  attach_function :set_add_rowmode, [:pointer, :char], :char
+
+  # void set_timeout(lprec *lp, long sectimeout);
+  attach_function :set_timeout, [:pointer, :int], :void
+
+
   def self.version
     maj_ptr = FFI::MemoryPointer.new(:pointer, 1)
     min_ptr = FFI::MemoryPointer.new(:pointer, 1)
