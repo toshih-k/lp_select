@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["j.sower@asee.org", "j.prior@asee.org"]
   spec.description   = %q{Ruby bindings for LPSolve}
   spec.summary       = %q{Ruby bindings for LPSolve}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/asee/lp_select"
   spec.license       = "LGPL"
 
   spec.files         = `git ls-files`.split($/)
